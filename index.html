@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Mastermind</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8">
+		
+		<link href="https://fonts.googleapis.com/css?family=Concert+One" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Orbitron:400,900" rel="stylesheet">
+		<link rel="stylesheet" href="assets/css/style.css">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.9/font-awesome-animation.min.css" rel="stylesheet" type="text/css">
+		<link href="https://use.fontawesome.com/46cd7bd22b.css" media="all" rel="stylesheet">
+		
+		<script src="https://use.fontawesome.com/46cd7bd22b.js"></script>
+	</head>
+	<body>		
+		<section class="content-item">
+			<div class="container">
+				<div class="row row-centered">
+					<div class="col-12 text-center">
+						<h1 class="title">Mastermind</h1>
+						<div class="row">
+							<div class="col-5 col-sm-12">
+								<div class="row">
+									<div class="col-sm-8 col-m-8 bullet-col text-right">
+										<ul class="bullets-arrows" id="arrows">
+											<li class="no-border" data-col="1"><i class="fa fa-arrow-down fa-2x faa-float animated" aria-hidden="true"></i></li>
+											<li class="no-border" data-col="2"><i class="fa fa-arrow-down fa-2x faa-float animated" aria-hidden="true"></i></li>
+											<li class="no-border" data-col="3"><i class="fa fa-arrow-down fa-2x faa-float animated" aria-hidden="true"></i></li>
+											<li class="no-border" data-col="4"><i class="fa fa-arrow-down fa-2x faa-float animated" aria-hidden="true"></i></li>
+										</ul>
+									</div>
+									<div class="row row-centered" id="rows">
+									</div>
+									<div class="col-sm-12 col-m-12 bullet-col">
+										<hr class="line-small-primary">
+									</div>
+									<div class="col-sm-8 col-m-8 bullet-col text-right">
+										<ul class="bullets-big">
+											<li class="text-center answer" id="answer_1"><i class="fa fa-question fa-2x faa-pulse animated" aria-hidden="true"></i></li>
+											<li class="text-center answer" id="answer_2"><i class="fa fa-question fa-2x faa-pulse animated" aria-hidden="true"></i></li>
+											<li class="text-center answer" id="answer_3"><i class="fa fa-question fa-2x faa-pulse animated" aria-hidden="true"></i></li>
+											<li class="text-center answer" id="answer_4"><i class="fa fa-question fa-2x faa-pulse animated" aria-hidden="true"></i></li>
+										</ul>
+									</div>
+									<div class="col-sm-4 col-m-4"></div>
+								</div>
+							</div>
+							<div class="col-7 col-sm-12 text-center">
+								<div class="row">
+									<div class="col-sm-12 col-m-12">
+										<h3>Kies een kolom:</h3>
+										<div class="btn-inline" id="col-btns"></div>
+									</div>
+									<div class="col-sm-12 col-m-12" id="colorChooser">
+										<h3>Kies een kleur:</h3>
+										<!--
+										<ul class="bullets-big bullets-middle">
+											<li data-color="red" class="filled-red"></li>
+											<li data-color="pink" class="filled-pink"></li>
+											<li data-color="purple" class="filled-purple"></li>
+											<li data-color="blue" class="filled-blue"></li>
+											<li data-color="light-blue" class="filled-light-blue"></li>
+											<li data-color="cyan" class="filled-cyan"></li>
+										</ul>
+										<ul class="bullets-big bullets-middle">
+											<li data-color="green" class="filled-green"></li>
+											<li data-color="yellow" class="filled-yellow"></li>
+											<li data-color="orange" class="filled-orange"></li>
+											<li data-color="white" class="filled-white"></li>
+											<li data-color="gray" class="filled-gray"></li>
+											<li data-color="black" class="filled-black"></li>
+										</ul>
+										-->
+										<ul class="bullets-big bullets-middle">
+											<li data-color="red" class="filled-red"></li>
+											<li data-color="yellow" class="filled-yellow"></li>
+											<li data-color="green" class="filled-green"></li>
+											<li data-color="light-blue" class="filled-light-blue"></li>
+											<li data-color="white" class="filled-white"></li>
+											<li data-color="black" class="filled-black"></li>
+										</ul>
+									</div>
+									<div class="col-sm-12 col-m-12">
+										<div class="btn-inline">
+											<button class="btn btn-outline" id="btn_done">Klaar</button>
+										</div>
+									</div>
+									<div class="col-sm-12 col-m-12">
+										<div class="btn-inline">
+											<button class="btn btn-outline" id="new_game_2">Nieuw spel starten</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<section class="content-item message" id="message">
+			<div class="container">
+				<div class="row row-centered">
+					<div class="col-12 text-center">
+						<h1 class="title">Mastermind</h1>
+						<div class="row">
+							<div class="col-12 col-sm-12">
+								<h3 class="text-white text-orbitron" id="message_msg"></h3>
+								<div class="btn-inline">
+									<button class="btn btn-outline btn-white" id="new_game">Nieuw spel starten</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<div class="overlay-bg" id="messageBG"></div>
+
+		<footer>
+			<div class="footer-below">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12">
+							<p>Mastermind game by Stijn van Nieulande</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		
+		<script src="assets/js/script.js"></script>
+	</body>
+</html>
